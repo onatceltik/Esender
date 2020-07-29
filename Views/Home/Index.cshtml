@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome to E-sender</h1>
+        <br />
+        <hr />
+        <br />
+    </div>
+@if (User.Identity.IsAuthenticated == true)
+{
+<div class="row" style="padding-top: 30px">
+    <div class="col-md-4" style="text-align:center">
+        <a asp-area="" asp-controller="EmailOperations" asp-action="AddEmail">Add new e-mail to list</a>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <a asp-area="" asp-controller="EmailOperations" asp-action="DeleteEmail">Delete e-mail from list</a>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <a asp-area="" asp-controller="EmailOperations" asp-action="SendMail">Send e-mail to everyone</a>
+    </div>
+</div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12" style="padding-top: 30px; text-align:center">
+            <h3>You need to log in to use E-sender!</h3>
+        </div>
+    </div>
+}
